@@ -15,7 +15,6 @@ public class JavaToDoList {
     static String[] models = new String[10];
 
     public static void main(String[] args) {
-        System.out.println("ToDoApp");
 //        testShowToDoList();
 //        testAddToDoList();
 //        testRemoveToDoList();
@@ -136,6 +135,8 @@ public class JavaToDoList {
         dance:
         while (true) {
             showToDoList();
+            System.out.println("ToDoApp");
+            System.out.println("=======================================");
             System.out.println("PILIHAN: ");
             System.out.println("1. TAMBAH");
             System.out.println("2. HAPUS");
@@ -150,7 +151,7 @@ public class JavaToDoList {
                     viewRemoveToDoList();
                     break;
                 case "3":
-                    System.out.println("Good byee");
+                    System.out.println("\nThanks for using this App :)");
                     break dance;
                 default:
                     System.err.println("Msg info: pilihan1 tidak diketahui");
@@ -170,12 +171,15 @@ public class JavaToDoList {
         Menampilkan tampilan tambah ToDoList
      */
     public static void viewAddToDoList() {
-        System.out.println("MENAMBAH TODOLIST");
+        System.out.println("=======================================");
+        System.out.println("=======================================");
+        System.out.println("MENAMBAH TODOLIST (X Jika ingin batal)");
         System.out.println("Silahkan tulis todo");
         String todo = input();
         switch (todo) {
-            case "3":
-                System.out.println("Anda telah keluar");
+            case "X":
+            case "x":
+                System.out.println("\n");
                 break;
             default:
                 addToDoList(todo);
@@ -196,12 +200,15 @@ public class JavaToDoList {
         Menampilkan view menghapus ToDoList
      */
     public static void viewRemoveToDoList() {
-        System.out.println("Menghapus Todo");
+        System.out.println("=======================================");
+        System.out.println("=======================================");
+        System.out.println("MENGHAPUS TODOLIST (X Jika ingin batal)");
         System.out.print("Tulis nomer yang dihapus: ");
         String number = input();
         switch (number) {
-            case "3":
-                System.out.println("Anda telah keluar");
+            case "X":
+            case "x":
+                System.out.println("\n");
                 break;
             default:
                 boolean result = removeToDoList(Integer.valueOf(number));

@@ -1,5 +1,7 @@
 package view;
 
+import static javatodolist.JavaToDoList.input;
+import static javatodolist.JavaToDoList.removeToDoList;
 import service.TodoListService;
 import util.InputUtil;
 
@@ -19,6 +21,7 @@ public class TodoListView {
         dance:
         while (true) {
             todoListService.showTodoList();
+            System.out.println("=======================================");
             System.out.println("ToDoApp");
             System.out.println("=======================================");
             System.out.println("PILIHAN: ");
@@ -45,10 +48,34 @@ public class TodoListView {
     }
 
     public void addTodoList() {
-
+        System.out.println("=======================================");
+        System.out.println("=======================================");
+        System.out.println("MENAMBAH TODOLIST (X Jika ingin batal)");
+        System.out.println("Silahkan tulis todo");
+        String todo = InputUtil.input();
+        switch (todo) {
+            case "X":
+            case "x":
+                System.out.println("\n");
+                break;
+            default:
+                todoListService.addTodoList(todo);
+        }
     }
 
     public void removeTodoList() {
-
+        System.out.println("=======================================");
+        System.out.println("=======================================");
+        System.out.println("MENGHAPUS TODOLIST (X Jika ingin batal)");
+        System.out.print("Tulis nomer yang dihapus: ");
+        String number = InputUtil.input();
+        switch (number) {
+            case "X", "x" ->
+                System.out.println("\n");
+            default -> {
+                todoListService.removeTodoList(Integer.valueOf(number));
+            }
+        }
     }
+
 }

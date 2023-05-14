@@ -64,8 +64,8 @@ public class JavaToDoList {
             Sehingga kita tidak perlu menambahkan space baru pada array nya
          */
         boolean isFull = true;
-        for (int i = 0; i < models.length; i++) {
-            if (models[i] == null) {
+        for (String model : models) {
+            if (model == null) {
                 isFull = false;
                 break;
             }
@@ -177,11 +177,9 @@ public class JavaToDoList {
         System.out.println("Silahkan tulis todo");
         String todo = input();
         switch (todo) {
-            case "X":
-            case "x":
+            case "X", "x" ->
                 System.out.println("\n");
-                break;
-            default:
+            default ->
                 addToDoList(todo);
         }
 
